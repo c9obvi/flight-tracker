@@ -52,5 +52,5 @@ driver.quit()
 # Print the JSON data
 print(json_data)
 print('Flight informatoin has been saved to plane_data-main.json')
-with open('plane_data-main.json', 'w') as file:
+with open('plane_data.json', 'w') as file:
     json.dump(plane_info, file, indent=4)

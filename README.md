@@ -29,10 +29,10 @@ This tool is designed to scrape plane information from the website "ADS-B Exchan
    ```
    python plane_scraper.py
    ```
-3. Check the terminal for the elapsed time and the output directory for the generated JSON file named `plane_data-main.json`.
+3. Check the terminal for the elapsed time and the output directory for the generated JSON file named `plane_data.json`.
 
 ## Output
-The script saves the scraped data in a JSON file named `plane_data-main.json`. This file includes details like Groundspeed, Barometric Altitude, Track, etc., in a structured format.
+The script saves the scraped data in a JSON file named `plane_data.json`. This file includes details like Groundspeed, Barometric Altitude, Track, etc., in a structured format.
 
 ## Contributing
 Contributions, issues, and feature requests are welcome! Feel free to fork the repository and submit pull requests.
@@ -41,6 +41,4 @@ Contributions, issues, and feature requests are welcome! Feel free to fork the r
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
-Your Name - [Your Email](mailto:youremail@example.com)
-
-Project Link: [https://github.com/yourusername/your-repo-name](https://github.com/yourusername/your-repo-name)
+Your Name - [0xBerto](https://x.com/0xberto)
