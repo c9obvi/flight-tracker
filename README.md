@@ -21,7 +21,7 @@ This tool is designed to scrape plane information from the website "ADS-B Exchan
    ```
    pip install selenium beautifulsoup4
    ```
-3. Download ChromeDriver from [here](https://sites.google.com/a/chromium.org/chromedriver/downloads) and place it in a known directory.
+3. Download ChromeDriver from [here](https://sites.google.com/a/chromium.org/) and place it in a known directory.
 
 ## Usage
 1. Open the script in a text editor and set the target URL in the `url` variable.
