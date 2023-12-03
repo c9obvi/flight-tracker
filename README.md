@@ -27,7 +27,7 @@ This tool is designed to scrape plane information from the website "ADS-B Exchan
 1. Open the script in a text editor and set the target URL in the `url` variable.
 2. Run the script using Python:
    ```
-   python plane_scraper.py
+   python main.py
    ```
 3. Check the terminal for the elapsed time and the output directory for the generated JSON file named `plane_data.json`.
 
