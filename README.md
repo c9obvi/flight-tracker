@@ -1,7 +1,7 @@
 # Plane Information Scraper
 
 ## Overview
-This tool is designed to scrape plane information from the website "ADS-B Exchange". It captures various details such as Groundspeed, Barometric Altitude, WGS84 Altitude, Vertical Rate, and more. The script is implemented in Python and uses Selenium for web scraping and BeautifulSoup for HTML parsing.
+This tool is designed to scrape plane information from the website "ADS-B Exchange". It captures various details such as Groundspeed, Barometric Altitude, WGS84 Altitude, Vertical Rate, and more. The script is implemented in Python and uses Selenium for web scraping and BeautifulSoup for HTML parsing. Elapsed time of scrape is currently around 300 seconsd. 
 
 ## Features
 - Scrape plane information from ADS-B Exchange.
