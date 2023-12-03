@@ -41,4 +41,4 @@ Contributions, issues, and feature requests are welcome! Feel free to fork the r
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
-Your Name - [0xBerto](https://x.com/0xberto)
+- [0xBerto](https://x.com/0xberto)
