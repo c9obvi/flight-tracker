@@ -38,8 +38,8 @@ The script saves the scraped data in a JSON file named `plane_data.json`. This f
 
 ## Automating 
 
-> [NOTE]
-> `chmod +x` the `flight-tracker.sh`` script before adding it to your crontab or other scheduling service
+> [!NOTE]
+> `chmod +x` the `flight-tracker.sh`` script before adding it to your crontab or other scheduling service of your choice.
 
 ## Contributing
 Contributions, issues, and feature requests are welcome! Feel free to fork the repository and submit pull requests.
