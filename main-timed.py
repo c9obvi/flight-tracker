@@ -3,18 +3,15 @@ from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 import time
 import json
-import threading
+import subprocess
+import platform
 
-# Timer function to display elapsed time
-def display_timer():
-    start_time = time.time()
-    while not stop_timer_event.is_set():
-        elapsed_time = time.time() - start_time
-        print(f"Elapsed time: {elapsed_time:.2f} seconds", end='\r')
-        time.sleep(1)
+# Start the timer
+start_time = time.time()
 
 # URL of the website
-url = "https://globe.adsbexchange.com/?icao=86d5be"
+# url = "https://globe.adsbexchange.com/?icao=86d5be"
+url = "https://globe.adsbexchange.com/?icao=a10343"
 
 # Setup Selenium WebDriver
 options = Options()
@@ -32,7 +29,7 @@ def scrape_plane_info(url):
     # Dictionary to hold the scraped data
     plane_info = {}
 
-    # Extracting altitude information
+    # Extracting information
     plane_info['Groundspeed'] = soup.find(id='selected_speed1').get_text(strip=True) if soup.find(id='selected_speed1') else 'n/a'
     plane_info['Baro. Altitude'] = soup.find(id='selected_altitude1').get_text(strip=True) if soup.find(id='selected_altitude1') else 'n/a'
     plane_info['WGS84 Altitude'] = soup.find(id='selected_altitude_geom1').get_text(strip=True) if soup.find(id='selected_altitude_geom1') else 'n/a'
@@ -49,13 +46,16 @@ def scrape_plane_info(url):
 
     return plane_info
 
-# Start the timer
-stop_timer_event = threading.Event()
-timer_thread = threading.Thread(target=display_timer)
-timer_thread.start()
-
 # Scrape data from the URL
 plane_info = scrape_plane_info(url)
+
+# Calculate elapsed time and time of completion
+elapsed_time = time.time() - start_time
+time_of_completion = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+
+# Add elapsed time and time of completion to the data
+plane_info['Elapsed Time'] = f"{elapsed_time:.2f} seconds"
+plane_info['Time of Completion'] = time_of_completion
 
 # Convert to JSON
 json_data = json.dumps(plane_info, indent=4)
@@ -63,13 +63,22 @@ json_data = json.dumps(plane_info, indent=4)
 # Close the driver
 driver.quit()
 
-# Stop the timer
-stop_timer_event.set()
-timer_thread.join()
-
 # Print the JSON data
 print('\n' + json_data)
 print('Flight information has been saved to plane_data-main.json')
 
-with open('plane_data-timed.json', 'w') as file:
+# Save the data to a file
+file_name = 'plane_data-timed.json'
+with open(file_name, 'w') as file:
     json.dump(plane_info, file, indent=4)
+
+# Open the saved file in a browser
+if platform.system() == 'Darwin':  # macOS
+    subprocess.run(['open', '-a', 'Google Chrome', file_name])
+elif platform.system() == 'Windows':  # Windows
+    path_to_chrome = r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
+    subprocess.run([path_to_chrome, file_name])
+elif platform.system() == 'Linux':  # Linux
+    subprocess.run(['google-chrome', file_name])
+else:
+    print('Platform not supported for browser opening')
