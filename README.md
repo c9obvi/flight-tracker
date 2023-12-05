@@ -31,10 +31,15 @@ This tool is designed to scrape plane information from the website "ADS-B Exchan
    ```
    python main.py
    ```
-3. Check the terminal for the elapsed time and the output directory for the generated JSON file named `plane_data.json`.
+3. Check the terminal for the elapsed time and the output directory for the generated JSON file named `plane_data.json`. (or plane_data-timed.json if you are using the elapsed time version)
 
 ## Output
 The script saves the scraped data in a JSON file named `plane_data.json`. This file includes details like Groundspeed, Barometric Altitude, Track, etc., in a structured format.
+
+## Automating 
+
+> [NOTE]
+> `chmod +x` the `flight-tracker.sh`` script before adding it to your crontab or other scheduling service
 
 ## Contributing
 Contributions, issues, and feature requests are welcome! Feel free to fork the repository and submit pull requests.
