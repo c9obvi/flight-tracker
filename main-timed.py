@@ -9,7 +9,9 @@ import platform
 # Start the timer
 start_time = time.time()
 
-# URL of the website
+# URL of the website || visit their site, enter call sign, grab url 
+# I will build a GUI to enter the call sign and then grab the url
+
 # url = "https://globe.adsbexchange.com/?icao=86d5be"
 url = "https://globe.adsbexchange.com/?icao=a10343"
 
